@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const Activity = require('../models/Activity'); // A Mongoose model
 
-// POST /api/activity/track
-router.post('/track', (req, res) => {
-  console.log('✅ Activity received:', req.body);
-  
-  // Save to DB logic goes here (optional)
-  
-  res.json({ message: 'Activity logged successfully' });
+router.post('/track', async (req, res) => {
+  try {
+    const activity = new Activity(req.body);
+    await activity.save();
+    res.json({ message: 'Activity saved to DB!' });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to save activity' });
+  }
 });
 
 module.exports = router;
