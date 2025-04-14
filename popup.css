@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  #siteList {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  
+  .site {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .site span {
+    font-size: 14px;
+    word-wrap: break-word;
+    max-width: 200px;
+  }
+  
+  .productive {
+    color: #4CAF50;  /* Green for productive websites */
+    font-weight: bold;
+  }
+  
+  .unproductive {
+    color: #F44336;  /* Red for unproductive websites */
+    font-weight: bold;
+  }
+  
+  .site:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+  
+  .site span:last-child {
+    color: #555;
+  }
+  

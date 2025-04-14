@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productivity Analytics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      margin: 0;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .site {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .site span {
+      font-size: 14px;
+    }
+    .productive {
+      color: green;
+    }
+    .unproductive {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h3>Time Tracking</h3>
+  <div id="siteList"></div>
+  <h1>Weekly Report</h1>
+  <ul id="report-list"></ul>
+  <canvas id="reportChart" width="280" height="280"></canvas>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
