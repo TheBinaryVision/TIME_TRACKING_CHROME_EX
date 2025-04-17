@@ -1,11 +1,24 @@
-// server/models/Activity.js
 const mongoose = require('mongoose');
 
-const activitySchema = new mongoose.Schema({
-  url: String,
-  title: String,
-  timeSpent: Number, // in seconds or ms
-  timestamp: { type: Date, default: Date.now },
+const ActivitySchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  duration: {
+    type: Number,
+    required: true,
+  },
+  startTime: {
+    type: Date,
+    required: true,
+  },
+  endTime: {
+    type: Date,
+    required: true,
+  }
 });
 
-module.exports = mongoose.model('Activity', activitySchema);
+const Activity = mongoose.model('Activity', ActivitySchema);
+
+module.exports = Activity;

@@ -1,9 +1,10 @@
 const express = require('express');
 const TimeData = require('../models/TimeData');
+const Activity = require('../models/Activity');
 const router = express.Router();
 
 // Route to track time spent on a website
-router.post('/track', async (req, res) => {
+router.post('/track/time', async (req, res) => {
   try {
     const { domain, timeSpent } = req.body;
 
@@ -56,15 +57,26 @@ router.get('/report', async (req, res) => {
 });
 
 // POST route to save activity data
-router.post('/track', async (req, res) => {
-    try {
-      const newActivity = new Activity(req.body);
-      await newActivity.save();
-      res.status(201).json({ message: 'Activity saved!' });
-    } catch (error) {
-      console.error('Error saving activity:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
+router.post('/track/activity', async (req, res) => {
+  try {
+    const newActivity = new Activity(req.body);
+    await newActivity.save();
+    res.status(201).json({ message: 'Activity saved!' });
+  } catch (error) {
+    console.error('Error saving activity:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// POST route to save activity data (alternative endpoint)
+router.post('/track/activity/alternative', async (req, res) => {
+  try {
+    const activity = new Activity(req.body);
+    await activity.save();
+    res.json({ message: 'Activity saved to DB!' });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to save activity' });
+  }
+});
 
 module.exports = router;

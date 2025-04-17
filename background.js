@@ -106,16 +106,3 @@ function sendToBackend(activityData) {
     })
     .catch(error => console.error('Error sending activity:', error));
 }
-
-// Fetch weekly report (used in popup)
-function fetchWeeklyReport() {
-  fetch('http://localhost:5000/api/report')
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('Weekly Report:', data);
-    })
-    .catch((error) => console.error('Error fetching report:', error));
-}
-
-// Optional: pre-fetch weekly report at extension start
-fetchWeeklyReport();
